@@ -1,0 +1,8 @@
+.collapser{
+    cursor:pointer;
+    align-items: center !important;
+    padding-left: 50%;
+    background: linear-gradient(0deg, rgb(212, 227, 227) 0%, rgba(238,238,238,1) 50%, rgba(255,255,255,1) 100%);
+    border:1px solid rgb(199, 199, 199)
+}
+

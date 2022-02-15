@@ -1,0 +1,15 @@
+
+.video-item{
+    display:flex !important;
+    align-items: center;
+    cursor: pointer;
+    /* margin:50px */
+    /* padding-top: 40px;
+    padding-left: 40px !important;
+    border: 1px solid black;
+    flex: auto; */
+}
+
+.video-item.item img{
+    max-width: 280px;
+}
