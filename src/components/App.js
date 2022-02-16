@@ -5,6 +5,7 @@ import VideoList from "./VideoList";
 import VideoDetails from "./VideoDetails";
 import "./App.css";
 
+
 class App extends React.Component {
   constructor() {
     super();
@@ -16,16 +17,30 @@ class App extends React.Component {
     isSelected: false,
     selectedVideo: null,
     isLoading: false,
+    isError:false,
   };
   onQuerySubmit = async (query) => {
     this.setState({ isSelected: false, isLoading: true });
-    const response = await youtube.get("/search", {
-      params: { q: query },
-    });
-    this.setState({ videos: response.data.items, isSubmitted: true });
+    await youtube
+      .get("/search", {
+        params: { q: query },
+      })
+      .then((response) => this.setState({ isLoading: false, videos: response.data.items ?? []}))
+      .catch(() => this.setState({ isLoading:false, isError: true }));
+    
+    this.setState({ isSubmitted: true });
   };
 
-
+  onIconClick = () => {
+    this.setState({
+      videos: [],
+      isSubmitted: false,
+      isSelected: false,
+      selectedVideo: null,
+      isLoading: false,
+      isError: false,
+    });
+  };
 
   onVideoSelect = (video) => {
     this.scollToRef.current.scrollIntoView();
@@ -34,9 +49,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <SearchBar className="search-bar" onFormSubmit={this.onQuerySubmit} />
+        <SearchBar
+          className="search-bar"
+          onFormSubmit={this.onQuerySubmit}
+          onIconClick={this.onIconClick}
+        />
         {this.state.isSubmitted && (
-          <label className="videos-found">{`${this.state.videos.length} Video${this.state.videos.length === 1 ? '': "s"} Found`}
+          <label className="videos-found">
+            {`${this.state.videos.length} Video${
+              this.state.videos.length === 1 ? "" : "s"
+            } Found`}
           </label>
         )}
         <div className="eleven wide column" ref={this.scollToRef}>
@@ -52,9 +74,10 @@ class App extends React.Component {
           <VideoList
             onVideoSelect={this.onVideoSelect}
             videos={this.state.videos}
+            isLoading={this.state.isLoading}
+            isError={this.state.isError}
           ></VideoList>
         )}
-
       </div>
     );
   }

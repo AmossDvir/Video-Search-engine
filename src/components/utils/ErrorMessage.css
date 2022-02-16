@@ -1,0 +1,12 @@
+.main-cont {
+  /* max-width:fit-content; */
+  width: max-content;
+  padding: 45px;
+  margin: 0 auto;
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 35% 35% 35% 35% / 50% 50% 50% 50%;
+  background-color: rgb(252, 217, 210);
+}
+h2 {
+  /* margin: 50px !important; */
+}
