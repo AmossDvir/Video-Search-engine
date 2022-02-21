@@ -11,8 +11,25 @@
 
 .ui.container{
     margin-top: 20px;
-    border: 1px solid rgb(243, 243, 243);
+    border: 1px solid rgb(216, 216, 216);
+    /* background: rgb(196,255,225); */
+    /* background: radial-gradient(circle, rgba(196,255,225,1) 0%, rgba(255,255,255,1) 100%); */
+    /* background: #1D976C;  fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(180deg, rgb(248, 248, 248), #dfdfdf); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
 }
 html {
     scroll-behavior:smooth;
+}
+
+.scroll-top{
+    position: fixed; 
+    right: 40px;
+    bottom: 40px;
+    font-size: 3rem;
+    z-index: 1;
+    color: rgb(186, 226, 208);
+}
+.arrow.circle.up.icon{
+    cursor: pointer;
 }
