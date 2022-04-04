@@ -16,3 +16,7 @@ i.sort.alphabet.down.icon{
     color: rgba(0, 0, 0, 0.87);
     background-color: rgb(186 226 208) !important;
 }
+
+.buttons{
+    margin:0px !important;
+}

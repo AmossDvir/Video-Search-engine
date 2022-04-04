@@ -6,3 +6,6 @@
     border:1px solid rgb(199, 199, 199)
 }
 
+.ui.segment{
+    background-color: transparent;
+}
