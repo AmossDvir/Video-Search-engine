@@ -10,6 +10,4 @@ export default axios.create({
         type: 'video',
         key:KEY
     }
-
-
 });
